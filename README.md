@@ -12,3 +12,7 @@ Microsoft VS clone - https://docs.microsoft.com/ru-ru/visualstudio/get-started/t
 create repo and add one code file
 
 # Семинар 17.02.2022
+
+## HW
+- Вводятся коэффициенты уравнения ax+b=c (предполагается, что a не равно 0). Вывести его корни.
+- Вводится число. Вывести, является ли оно положительным, отрицательным или нулём.
