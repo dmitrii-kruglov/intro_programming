@@ -10,3 +10,5 @@ Microsoft VS clone - https://docs.microsoft.com/ru-ru/visualstudio/get-started/t
 
 ## HW
 create repo and add one code file
+
+# Семинар 17.02.2022
