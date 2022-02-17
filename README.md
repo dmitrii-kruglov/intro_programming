@@ -14,3 +14,7 @@ Microsoft VS clone - https://docs.microsoft.com/ru-ru/visualstudio/get-started/t
 create repo and add one code file
 
 # Семинар 17 февраля 2022
+
+## HW
+- Создать функцию для перевода длины из дюймов в сантиметры. Сделать пример вызова в main.
+- Создать функцию для подсчета площади прямоугольника по длине его сторон. Сделать пример вызова в main.
