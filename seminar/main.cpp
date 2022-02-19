@@ -2,18 +2,21 @@
 
 using namespace std;
 
-void cout_hello() {
-  cout << "Hello World!" << endl;
-}
-
-int sum(int a, int b) {
-  return a + b;
-}
-
 int main() {
-  int c, d;
-  cin >> c >> d;
-  int s = sum(c, d);
-  cout << s << endl;
+  int a, b;
+  cout << "Input 2 ints:" << endl;
+  cin >> a >> b;
+  cout << a + b << endl;
+  cout << a - b << endl;
+  cout << a / b << endl;
+  cout << a * b << endl;
+  cout << a % b << endl;
+  // a = a + 1
+  cout << ++a << endl;
+  cout << a << endl;
+  // a = a - 1
+  cout << a-- << endl;
+  cout << a << endl;
+
   //return 0;
 }
