@@ -1,4 +1,4 @@
 compile = ["make", "-s"]
 run = "./main"
 entrypoint = "main.cpp"
-hidden = ["main", "**/*.o", ".ccls-cache", "Makefile"]
+hidden = ["main", "*.o", ".ccls-cache", "Makefile", ".gitignore"]
