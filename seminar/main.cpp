@@ -1,68 +1,37 @@
 #include <iostream>
-#include <cmath>
-
 using namespace std;
 
-int last(int digit) {
-  return digit % 10;
+bool in_scope(int coloumn, int row){
+  return coloumn >= 1 && coloumn <= 8 && row >= 1 &&  row <= 8;
 }
 
-int prev_last(int digit) {
-  return digit / 10 % 10;
+void task1() {
+      int c, a, c1, a1;
+    cerr << "Position:" << endl;
+    cin >> a >> c;
+    {
+      //new_position = move_two_up_one_left(a, c);
+        a1 = a - 1;
+        c1 = c + 2;
+    }
+    if(in_scope(a1, c1))
+        cout << a1 << ' ' << c1 << endl;   
 }
 
-int first_in_two(int digit) {
-  return digit / 10;
+
+bool test(){
+  bool test1 = in_scope(1, 8) == true;
+  bool test2 = in_scope(1, 3) == false;
+  bool test3 = in_scope(22, 9) == false;
+  return test1 || test2 || test3;
 }
 
-int first_in_three(int digit) {
-  if (digit > 100) {
-    return digit / 100;
-  }
-  else
-    return 0;
 
-}
-
-int first(int digit) {
-  while (digit > 10)
-    digit = digit / 10;
-  return digit;
-}
-
-int count(int digit) {
-  int count = 0;
-  do {
-    digit = digit / 10;
-    count++;
-  } while (digit > 0);
-  return count;
-}
-
-int main() {
-  int a, b;
-  /*
-   cout << "Input 1 int:" << endl;
-   cin >> a;
-   cout << "last:" << last(a) << endl;
-  
-   cout << "Input 1 int:" << endl;
-   cin >> a;
-   cout << "prev_last:" << prev_last(a) << endl;
-  
-   cout << "Input 1 int:" << endl;
-   cin >> a;
-   cout << "first_in_two:" << first_in_two(a) << endl;
-  
-   cout << "Input 1 int:" << endl;
-   cin >> a;
-   cout << "first_in_three:" << first_in_three(a) << endl;
-  */
-  // cout << "Input 1 int:" << endl;
-  // cin >> a;
-  // cout << "first:" << first(a) << endl;  
-
-  cout << "Input 1 int:" << endl;
-  cin >> a;
-  cout << "count:" << count(a) << endl;  
+int main(){
+   if(test())
+    task1();
+  else {
+    cerr << "Tests failed!!" << endl;
+    return 1;
+    }
 }
