@@ -1,22 +1,21 @@
 #include <iostream>
 using namespace std;
 
-int sum(int* array, int n){
-  int s = 0;
-  int* el;
-  for(int* i = array; i < &array[n]; i++){
-    s += *i;
-  }
-  return s;
-}
-
 int main(){
-  int n;
+  int n, m;
   cin >> n;
+  cin >> m;
   
-  int array[n];
+  int array[n][m];
   for(int i = 0; i < n; i++)
-    cin >> array[i];
+    for(int j = 0; j < m; j++)
+      cin >> array[i][j];
 
-  cout << "SUM = " << sum(array, n) << endl;
+  int s = 0;
+  for(int i = 0; i < n; i++)
+    for(int j = 0; j < m; j++){
+      s += array[i][j];
+  }
+  
+  cout << "SUM = " << s << endl;
 }
