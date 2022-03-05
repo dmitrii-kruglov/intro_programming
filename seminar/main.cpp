@@ -1,20 +1,19 @@
-#include "chess.h"
+#include <iostream>
 using namespace std;
-using namespace chess;
-
-bool test(){
-  bool test1 = right({5, 8}, {6, 7}) == true;  
-  bool test2 = right({1, 8}, {1, 6}) == false;  
-  bool test3 = right({2, 6}, {3, 7}) == true;
-  bool test4 = right({1, 1}, {2, 2}) == true;
-  return test1 && test2 && test3 && test4;
-}
 
 int main() {
-  if(test())
-    task1();
-  else {
-    cout << "Tests failed!" << endl;
-    return 1;
-  }
+  int n, m;
+  cin >> n >> m;
+
+  int array[n][m];
+  for(int i =0; i < n; i++)
+    for(int j =0; j < m; j++)
+      cin >> array[i][j];
+
+  int s = 0;
+  for(int i =0; i < n; i++)
+    for(int j =0; j < m; j++)
+      s += array[i][j];
+  
+  cout << "SUM: " << s << endl;
 }
