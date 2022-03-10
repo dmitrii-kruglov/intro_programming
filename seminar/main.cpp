@@ -2,25 +2,17 @@
 using namespace std;
 
 int main() {
-  int n;
-  cin >> n;
-
-  int** array = new int*[n];
-  array[0] = new int[4];
-  array[1] = new int[2];
-  array[2] = new int[3];
-  array[3] = new int[6];
-  array[4] = new int[1];
-
-  for(int i =0; i < n; i++)
-     cin >> array[i];
-
-  int s = 0;
-  for(int i =0; i < n; i++)
-      s += array[i];
+  string str1, str2 = "_ff";
+  cout << "Input string:" << endl;
+  cin >> str1;
   
-  cout << "SUM: " << s << endl;
+  cout << str1.size();
   
-  for(int i; i < n; i++)
-    delete [] array[i];
-  delete [] array;
+  // "0123456" => "012"+str2+"3456" => "012_ff3456"
+  cout << str1.insert(3, str2);
+  // "01234567" => "4567"
+  str2 = str1.substr(4);
+  
+  cout << str1 << endl;
+  cout << str2 << endl;
+}
