@@ -2,18 +2,25 @@
 using namespace std;
 
 int main() {
-  int n, m;
-  cin >> n >> m;
+  int n;
+  cin >> n;
 
-  int array[n][m];
+  int** array = new int*[n];
+  array[0] = new int[4];
+  array[1] = new int[2];
+  array[2] = new int[3];
+  array[3] = new int[6];
+  array[4] = new int[1];
+
   for(int i =0; i < n; i++)
-    for(int j =0; j < m; j++)
-      cin >> array[i][j];
+     cin >> array[i];
 
   int s = 0;
   for(int i =0; i < n; i++)
-    for(int j =0; j < m; j++)
-      s += array[i][j];
+      s += array[i];
   
   cout << "SUM: " << s << endl;
-}
+  
+  for(int i; i < n; i++)
+    delete [] array[i];
+  delete [] array;
