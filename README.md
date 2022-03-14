@@ -131,7 +131,6 @@ Microsoft VS clone - https://docs.microsoft.com/ru-ru/visualstudio/get-started/t
 
 # Семинар 10 марта 2022
 - защита лабораторной работы
-- динамические массивы
 - строки
 
 ## HW-05
@@ -142,3 +141,4 @@ Microsoft VS clone - https://docs.microsoft.com/ru-ru/visualstudio/get-started/t
 - подведение итогов по HW
 
 # Семинар 24 марта 2022
+- динамические массивы
