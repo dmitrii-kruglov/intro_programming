@@ -147,7 +147,7 @@ Microsoft VS clone - https://docs.microsoft.com/ru-ru/visualstudio/get-started/t
 
 # Семинар 24 марта 2022
 - динамические массивы
-
+- разбор пройденных тем
 </details>
 
 # Семинар 07 апреля 2022
