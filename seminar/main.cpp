@@ -1,36 +1,56 @@
 #include <iostream>
 using namespace std;
 
-int* input_array(int  n){
-  int* array = new int[n];
-  for(int i = 0; i < n; i++)
-    cin >> array[i];
-  return array;
+int sum(int x, int y) 
+{
+    return x + y;
 }
 
-int sum(int** array, int  n, int m){
-  int sum = 0;
-  for(int i = 0; i < n; i++)  
-    for(int j =0; j < m; j++)
-      sum += array[i][j];
-  return sum;
+int dif(int x, int y)
+{
+    return x - y;
+} 
+
+int* mas_sum(int p, int l[], int h[])
+{
+  int* d = new int[p];
+  for (int i = 0; i <p; i++)
+        d[i] = sum (l[i], h[i]);
+  return d;
 }
 
-void delet_array(int** arr){  
-  for(int i =0; i < 3; i++)
-    delete[] arr[i];
-  delete[] arr;
+int* mas_dif(int p, int l[ ], int h[ ])
+{
+  int* d = new int[p];
+    for (int i = 0; i < p; i++)
+        d[i] = dif(l[i], h[i]);
+  return d;
 }
 
-int main(){
-  int* n = new int;
-  *n = 3;
-  int** my_two_massive = new int*[(*n)];
-  for(int i = 0; i < *n; i++)
-    my_two_massive[i] = input_array(7);
-  
-  cout << sum(my_two_massive, *n, 7) << endl;
-  
-  delet_array(my_two_massive);
-  delete n;
+int main()
+{
+    int n;
+    char k;
+    cout << "Введите количество чисел, которые могут быть в массиве: ";
+    cin>>n;
+    int a[ n ];
+    int b[ n ];
+    int* c;
+    cout << "Введите числа массива: ";
+    for ( int i = 0; i < n; i++)
+        cin >> a[ i ];
+    cout << "Выберите операцию + или - : ";
+    cin >> k;
+    cout << "Введите числа массива: ";
+    for (int i = 0; i < n; i++)
+        cin >> b[ i ];
+    if (k == '+')
+       c = mas_sum( n, a, b);
+    else
+       c = mas_dif( n, a, b);
+    
+    cout << "Ответ: " << endl;
+    for (int i = 0; i < n; i++)
+      cout << "c[" << i << "]:" << c[i] << endl;
+  delete c;
 }
