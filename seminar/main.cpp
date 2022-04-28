@@ -1,56 +1,30 @@
 #include <iostream>
 using namespace std;
 
-int sum(int x, int y) 
-{
-    return x+y;
+struct drob {
+  int ch;
+  int zn;
+};
+
+int greatest_common_divisor(int a, int b) {
+  if (a % b == 0)
+    return b;
+  if (b % a == 0)
+    return a;
+  if (a > b)
+    return greatest_common_divisor(a%b, b);
+  return greatest_common_divisor(a, b%a);
 }
 
-int dif(int x, int y)
-{
-    return x-y;
-} 
-
-int* mas_sum(int p, int l[], int h[])
-{
-  int* d = new int[p];
-  for (int i = 0; i <p; i++)
-        d[i] = sum (l[i], h[i]);
-  return d;
-}
-
-int* mas_dif(int p, int l[ ], int h[ ])
-{
-  int* d = new int[p];
-    for (int i = 0; i < p; i++)
-        d[i] = dif(l[ i ], h[ i ]);
-  return d;
+void socr(drob& d){
+  int nod = greatest_common_divisor(d.zn, d.ch);
+  d.zn /= nod;
+  d.ch /= nod;
 }
 
 int main()
-{
-    int n;
-    char k;
-    cout << "Введите количество чисел, которые могут быть в массиве: ";
-    cin>>n;
-    int a[ n ];
-    int b[ n ];
-    int* c;
-    cout << "Введите числа массива: ";
-    for ( int i = 0; i < n; i++)
-        cin >> a[ i ];
-    cout << "Выберите операцию + или - : ";
-    cin >> k;
-    cout << "Введите числа массива: ";
-    for (int i = 0; i < n; i++)
-        cin >> b[ i ];
-    if (k == '+')
-       c = mas_sum( n, a, b);
-    else
-       c = mas_dif( n, a, b);
-    
-    cout << "Ответ: " << endl;
-    for (int i = 0; i < n; i++)
-      cout << "c[" << i << "]:" << c[i] << endl;
-  delete c;
+{  
+  drob d1 = {3, 6};
+  socr(d1);
+  cout << d1.ch << "/" << d1.zn;
 }
