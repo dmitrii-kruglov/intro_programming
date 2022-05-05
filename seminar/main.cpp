@@ -1,30 +1,52 @@
 #include <iostream>
 using namespace std;
 
-struct drob {
-  int ch;
-  int zn;
-};
+string USER = "user";
+string PASSWORD = "123";
 
-int greatest_common_divisor(int a, int b) {
-  if (a % b == 0)
-    return b;
-  if (b % a == 0)
-    return a;
-  if (a > b)
-    return greatest_common_divisor(a%b, b);
-  return greatest_common_divisor(a, b%a);
+float task1(int a, int b){
+  if (b == 0)
+      throw "Деление на 0!";
+  return (float)a / b;
 }
 
-void socr(drob& d){
-  int nod = greatest_common_divisor(d.zn, d.ch);
-  d.zn /= nod;
-  d.ch /= nod;
+bool log_in(string log){
+  string password;
+  for(int i = 0; i < 3; i++){
+    cout << "Введите пароль:";
+    cin >> password;
+    if(log == USER && password == PASSWORD)
+      return true;
+    else
+      cout << "Неудачная попытка!" << endl;
+  }
+  if(log == USER)
+    throw 1;
+  else
+    throw 2;
 }
 
 int main()
-{  
-  drob d1 = {3, 6};
-  socr(d1);
-  cout << d1.ch << "/" << d1.zn;
+{ 
+  int a1, a2;
+  cout << "Введите два числа:";
+  cin >> a1 >> a2;
+  try{
+     float c =  task1(a1, a2);
+     cout << "Результат деления: " << c;
+  } catch (const char* error){
+    cout << "ERROR: " << error;
+  }
+  string login;
+  cout << "Введите логин:";
+  cin >> login;
+  try{
+      log_in(login);
+      cout << "Успешный вход";
+    } catch(const int i){
+      if(i == 1)
+        cout << "Введен три раза некорректный пароль" << endl;
+      if(i == 2)
+        cout << "Введен некорректный логин" << endl;
+    }
 }
