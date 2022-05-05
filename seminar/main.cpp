@@ -1,56 +1,52 @@
 #include <iostream>
 using namespace std;
 
-int sum(int x, int y) 
-{
-    return x + y;
+string USER = "user";
+string PASSWORD = "123";
+
+float task1(int a, int b){
+  if (b == 0)
+      throw "Деление на 0!";
+  return (float)a / b;
 }
 
-int dif(int x, int y)
-{
-    return x - y;
-} 
-
-int* mas_sum(int p, int l[], int h[])
-{
-  int* d = new int[p];
-  for (int i = 0; i <p; i++)
-        d[i] = sum (l[i], h[i]);
-  return d;
-}
-
-int* mas_dif(int p, int l[ ], int h[ ])
-{
-  int* d = new int[p];
-    for (int i = 0; i < p; i++)
-        d[i] = dif(l[i], h[i]);
-  return d;
+bool log_in(string log){
+  string password;
+  for(int i = 0; i < 3; i++){
+    cout << "Введите пароль:";
+    cin >> password;
+    if(log == USER && password == PASSWORD)
+      return true;
+    else
+      cout << "Неудачная попытка!" << endl;
+  }
+  if(log == USER)
+    throw 1;
+  else
+    throw 2;
 }
 
 int main()
-{
-    int n;
-    char k;
-    cout << "Введите количество чисел, которые могут быть в массиве: ";
-    cin>>n;
-    int a[ n ];
-    int b[ n ];
-    int* c;
-    cout << "Введите числа массива: ";
-    for ( int i = 0; i < n; i++)
-        cin >> a[ i ];
-    cout << "Выберите операцию + или - : ";
-    cin >> k;
-    cout << "Введите числа массива: ";
-    for (int i = 0; i < n; i++)
-        cin >> b[ i ];
-    if (k == '+')
-       c = mas_sum( n, a, b);
-    else
-       c = mas_dif( n, a, b);
-    
-    cout << "Ответ: " << endl;
-    for (int i = 0; i < n; i++)
-      cout << "c[" << i << "]:" << c[i] << endl;
-  delete c;
+{ 
+  int a1, a2;
+  cout << "Введите два числа:";
+  cin >> a1 >> a2;
+  try{
+     float c =  task1(a1, a2);
+     cout << "Результат деления: " << c;
+  } catch (const char* error){
+    cout << "ERROR: " << error;
+  }
+  string login;
+  cout << "Введите логин:";
+  cin >> login;
+  try{
+      log_in(login);
+      cout << "Успешный вход";
+    } catch(const int i){
+      if(i == 1)
+        cout << "Введен три раза некорректный пароль" << endl;
+      if(i == 2)
+        cout << "Введен некорректный логин" << endl;
+    }
 }
